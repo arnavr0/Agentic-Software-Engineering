@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Agentic Tester Fixture</title>
+  </head>
+  <body>
+    <main>
+      <h1>Project form</h1>
+      <label for="project-name">Project name</label>
+      <input id="project-name" name="project-name" placeholder="Project name">
+      <label for="priority">Priority</label>
+      <select id="priority" name="priority">
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="save" type="button">Save project</button>
+      <p id="status" role="status"></p>
+    </main>
+    <script>
+      console.log('fixture loaded');
+      document.querySelector('#save').addEventListener('click', async () => {
+        document.querySelector('#status').textContent = 'Project saved';
+        await fetch('/api/health');
+      });
+    </script>
+  </body>
+</html>
